@@ -59,3 +59,27 @@ public class Crc {
             System.out.println("no error");
     }
 }
+
+
+
+
+/*Output1
+Enter the length of Data Frame:
+4
+Enter the Message:
+1 0 1 1
+Data to be transmitted:
+1 0 1 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1
+Enter the Reveived Data:
+1 0 1 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1
+no error
+Output2
+Enter the length of Data Frame:
+4
+Enter the Message:
+1 0 1 1
+Data to be transmitted:
+1 0 1 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 1 1
+Enter the Reveived Data:
+1 0 1 1 1 0 1 1 0 0 0 1 0 1 1 0 1 0 0 1
+error in data*/
