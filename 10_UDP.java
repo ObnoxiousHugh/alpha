@@ -3,7 +3,7 @@
 import java.io.*;
 import java.net.*;
 
-public class TCPServer{
+public class UDPServer{
     public static void main(String[] args) {
         DatagramSocket skt = null;
         try {
@@ -29,7 +29,7 @@ public class TCPServer{
 import java.io.*;
 import java.net.*;
 
-public class TCPClient {
+public class UDPClient {
     public static void main(String[] args) {
         DatagramSocket skt;
         try {
