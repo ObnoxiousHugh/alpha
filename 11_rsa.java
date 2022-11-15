@@ -161,10 +161,10 @@ public class RSA
     }
 }
 
-OUTPUT:
+/*OUTPUT:
 Enter message you wish to send.
 cns
 Encrypting the message: cns
 The message in bytes is:: 99110115
 Decrypting Bytes: 99110115
-Plain message is: cns
+Plain message is: cns*/
