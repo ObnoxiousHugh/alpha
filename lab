@@ -79,6 +79,14 @@ public class RSA
         return (new BigInteger(message)).modPow(d, N).toByteArray();
     }
 }
+
+OUTPUT:
+Enter message you wish to send.
+cns
+Encrypting the message: cns
+The message in bytes is:: 99110115
+Decrypting Bytes: 99110115
+Plain message is: cns
     
     
     
