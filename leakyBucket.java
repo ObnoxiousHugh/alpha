@@ -80,3 +80,95 @@ public class leaky {
  * 4 0 2 1 0
  * 5 0 1 0 0
  */
+
+
+
+
+
+Program 12: 
+Title: Implementation of Leaky Bucket Algorithm.  
+Aim: Write a program for congestion control using leaky bucket algorithm.
+
+import java.io.*;
+import java.util.*;
+
+class Queue
+
+{
+    int q[], f = 0, r = 0, size;
+
+    void insert(int n) {
+        Scanner in = new Scanner(System.in);
+        q = new int[10];
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nEnter " + i + " element: ");
+            int ele = in.nextInt();
+            if (r + 1 > 10) {
+                System.out.println("\nQueue is full \nLost Packet: " + ele);
+                break;
+            } else {
+                r++;
+                q[i] = ele;
+            }
+        }
+    }
+
+    void delete() {
+        Scanner in = new Scanner(System.in);
+        Thread t = new Thread();
+        if (r == 0)
+            System.out.print("\nQueue empty ");
+        else {
+            for (int i = f; i < r; i++) {
+                try {
+                    t.sleep(1000);
+                } catch (Exception e) {
+                }
+                System.out.print("\nLeaked Packet: " + q[i]);
+                f++;
+            }
+        }
+        System.out.println();
+    }
+}
+
+class Leaky extends Thread {
+    public static void main(String ar[]) throws Exception {
+        Queue q = new Queue();
+        Scanner src = new Scanner(System.in);
+        System.out.println("\nEnter the packets to be sent:");
+        int size = src.nextInt();
+        q.insert(size);
+        q.delete();
+    }
+}
+
+
+/*OUTPUT:
+ 
+Enter the packets to be sent: 
+12 
+Enter 0 element: 2 
+Enter 1 element: 3 
+Enter 2 element: 5 
+Enter 3 element: 6 
+Enter 4 element: 8 
+Enter 5 element: 9 
+Enter 6 element: 4 
+Enter 7 element: 5 
+Enter 8 element: 6 
+Enter 9 element: 2 
+Enter 10 element: 3 
+Queue is full  
+
+Lost Packet: 3 
+Leaked Packet: 2 
+Leaked Packet: 3 
+Leaked Packet: 5 
+Leaked Packet: 6 
+Leaked Packet: 8 
+Leaked Packet: 9 
+Leaked Packet: 4 
+Leaked Packet: 5 
+Leaked Packet: 6 
+Leaked Packet: 2 */
