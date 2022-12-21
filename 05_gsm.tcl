@@ -52,23 +52,24 @@ proc End {} {
 global ns nt
 $ns flush-trace
 close $nt
-exec nam Lab5.nam &amp;
-exec awk -f lab5.awk Lab5.tr &amp;
-exec xgraph -P -bar -x TIME -y DATA gsm.xg &amp;
+exec nam Lab5.nam &
+exec awk -f lab5.awk Lab5.tr &
+exec xgraph -P -bar -x TIME -y DATA gsm.xg &
 exit 0
 }
-$ns at 0.0 &quot;$ftp start&quot;
-$ns at 10.0 &quot;End&quot;
+$ns at 0.0 "$ftp start"
+$ns at 10.0 "End"
 $ns run
+
 
 
 AWK File:
 BEGIN {Total_no_of_pkts=0;}
 {
-if($1 == &quot;r&quot;)
+if($1 == "r")
 {
 Total_no_of_pkts = Total_no_of_pkts + $6;
-printf(&quot;%f %d\n&quot;,$2,Total_no_of_pkts) &gt;&gt; &quot;gsm.xg&quot;
+printf("%f %d\n",$2,Total_no_of_pkts) >> "gsm.xg"
 }
 }
 END{}
