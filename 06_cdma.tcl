@@ -50,7 +50,7 @@ proc End {} {
 global ns nt
 $ns flush-trace
 close $nt
-exec nam Lab5.nam &
+exec nam Lab6.nam &
 exec awk -f Lab6.awk Lab6.tr &
 exec xgraph -P -bar -x TIME -y DATA cdma.xg &
 exit 0
